@@ -14,24 +14,17 @@
 
 function translatePigLatin(str) {
     // My code
-    let newStr = str.slice()
-    if (/^[aeiou]/.test(newStr)) {
-        newStr += 'way'
-    } else if (/^[^aeiou]+/g.test(newStr)) {
-        let me = newStr.match(/^[^aeiou]+/g)
-        console.log(me)
-        let newme = newStr.replace(/^[^aeiou]+/g, '')
-        newme += me + 'ay'
-        console.log(newme)
-        return newme
+    let consonantRgx = /^[^aeiou]+/;
+    if (consonantRgx.test(str)) {
+        let consonant = str.match(consonantRgx);
+        let newStr = str.replace(consonantRgx, '');
+        return newStr += consonant + 'ay';
     }
+    return str + 'way';
     // My code
     return newStr;
 }
 
-// console.log(/^[^aeiou]+/g.test('consonant'))
-// console.log('cgonsonant'.match(/^[^aeiou]+/))
-
-translatePigLatin("consonant");
-translatePigLatin("algorithm");
-translatePigLatin("rhythm")
+translatePigLatin("consonant"); // Should return 'onsonantcay'
+translatePigLatin("algorithm"); // Should return 'algorithmway'
+translatePigLatin("rhythm") // Should return 'rhythmay'
