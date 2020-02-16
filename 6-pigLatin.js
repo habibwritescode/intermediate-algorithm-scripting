@@ -14,15 +14,22 @@
 
 function translatePigLatin(str) {
     // My code
+    // We write a regex to search for the occurence of a consonant word or cluster at the start of str.
     let consonantRgx = /^[^aeiou]+/;
+    // We check if a consonant word or cluster is found. The .test() method returns a boolean true or false.
     if (consonantRgx.test(str)) {
+        // We use the match() method to assign the consonant word or cluster found at the start of str to a variable.
         let consonant = str.match(consonantRgx);
+        // We use the replace() method to replace the matched consonant word or cluster with an empty string.
+        // Example: 'leaped' becomes 'eaped', and 'them' becomes 'em'.
         let newStr = str.replace(consonantRgx, '');
+        // We return newStr concatenated with the removed consonant word or cluster and 'ay'.
+        // Example: 'eaped' now becomes 'eaped' += 'l' + 'ay'.
         return newStr += consonant + 'ay';
     }
+    // If str doesn't start with a consonant word or cluster , we just concatenate str with 'way'.
     return str + 'way';
     // My code
-    return newStr;
 }
 
 translatePigLatin("consonant"); // Should return 'onsonantcay'
