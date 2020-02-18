@@ -14,6 +14,7 @@
 // SOLUTION
 
 function uniteUnique(arr) {
+    // My code
     // We initialize an empty array to store our unique values.
     let uniqueArr = [];
     // Using the arguments object, we loop through the number of arrays passed to our function.
@@ -28,6 +29,7 @@ function uniteUnique(arr) {
     }
     // We return uniqueArr which now contains all unique values from the array arguments passed to our function.
     return uniqueArr;
+    // My code
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]); // should return [1, 3, 2, 5, 4].
